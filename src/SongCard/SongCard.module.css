@@ -1,0 +1,22 @@
+.cardContainer {
+  width: 80vw;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #cec0fc;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 0.5rem;
+  justify-content: space-around;
+}
+
+.song {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.verse {
+  font-size: 1rem;
+  text-align: center;
+}

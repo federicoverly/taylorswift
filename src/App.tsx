@@ -3,10 +3,15 @@ import { useQuery } from "@tanstack/react-query";
 import { Song, Taylor } from "./interfaces";
 import { SongsContainer } from "./SongsContainer/SongsContainer";
 import styles from "./App.module.css";
+import { SongCard } from "./SongCard/SongCard";
 
 function App() {
   const [filter, setFilter] = useState<string>("");
   const [keywords, setKeywords] = useState<string>("");
+  const [randomQuote, setRandomQuote] = useState<{
+    title: string;
+    verse: string;
+  }>();
 
   const query = useQuery({
     queryKey: ["taylor"],
@@ -33,7 +38,7 @@ function App() {
     for (const song of allSongs as Song[]) {
       for (const lyrics of Object.values(song)) {
         for (const verse of lyrics) {
-          if (verse.this.includes(keywords.toLowerCase())) {
+          if (verse.this.toLowerCase().includes(keywords.toLowerCase())) {
             const title = Object.keys(song).find((key) =>
               song[key].includes(verse)
             );
@@ -56,14 +61,50 @@ function App() {
         )
     );
 
+    setRandomQuote(undefined);
+
     return uniqueSongs;
   }, [query.data, keywords]);
+
+  const findRandomSonyLyric = useCallback(() => {
+    if (!query.data) return "";
+
+    setKeywords("");
+
+    const backendSongs = query.data as Taylor;
+
+    const allSongs: Song[] = Object.values(backendSongs).flat();
+
+    const randomSong = allSongs[Math.floor(Math.random() * allSongs.length)];
+
+    const randomTitle =
+      Object.keys(randomSong)[
+        Math.floor(Math.random() * Object.keys(randomSong).length)
+      ];
+
+    const randomVerse = Object.values(randomSong[randomTitle]).map(
+      (verse) => verse.this
+    )[
+      Math.floor(Math.random() * Object.values(randomSong[randomTitle]).length)
+    ];
+
+    setRandomQuote({
+      title: randomTitle,
+      verse: randomVerse,
+    });
+
+    return {
+      title: randomTitle,
+      verse: randomVerse,
+    };
+  }, [query.data]);
 
   return (
     <div className={styles.appContainer}>
       <div className={styles.title}>
         Fancy finding a Taylor quote to impress someone? Type a word below to
-        find a song lyric that includes it!
+        find a song lyric that includes it! You are not sure? Click on the
+        button below to get a random Taylor lyric that will inspire you today!
       </div>
       <input
         type="text"
@@ -74,9 +115,15 @@ function App() {
       <button onClick={saveFilter} className={styles.button}>
         Search
       </button>
+      <button onClick={findRandomSonyLyric} className={styles.button}>
+        Random Taylor Quote
+      </button>
       <SongsContainer songs={keywords !== "" ? filteredData : []} />
-      {filteredData.length === 0 && keywords !== "" && (
+      {filteredData.length === 0 && keywords !== "" && !randomQuote && (
         <div>No songs found</div>
+      )}
+      {randomQuote && keywords === "" && (
+        <SongCard song={randomQuote.title} verse={randomQuote.verse} />
       )}
     </div>
   );

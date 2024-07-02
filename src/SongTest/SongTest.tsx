@@ -30,6 +30,7 @@ export const SongTest = () => {
     if (!query.data) return "";
 
     setSong("");
+    setIsCorrect(undefined);
 
     const backendSongs = query.data as Taylor;
 

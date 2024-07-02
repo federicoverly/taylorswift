@@ -33,7 +33,7 @@
 
 .button {
   width: 80vw;
-  height: 50px;
+  height: "fit-content";
   font-size: 1.5rem;
   padding: 10px;
   border: none;

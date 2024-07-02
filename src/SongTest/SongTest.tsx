@@ -6,6 +6,7 @@ import { SongCard } from "../SongCard/SongCard";
 import { Song, Taylor } from "../interfaces";
 import disappointed from "./TS_disappointed.jpg";
 import approval from "./TS_approval.webp";
+import { removeBetweenBrackets } from "../utils/removeBetweenBrackets";
 
 export const SongTest = () => {
   const [song, setSong] = useState<string>("");
@@ -14,6 +15,8 @@ export const SongTest = () => {
     verse: string;
   }>();
   const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
+  const [isAnswerVisible, setIsAnswerVisible] = useState<boolean>(false);
+  const [clue, setClue] = useState<string>("");
 
   const query = useQuery({
     queryKey: ["taylor"],
@@ -31,6 +34,8 @@ export const SongTest = () => {
 
     setSong("");
     setIsCorrect(undefined);
+    setIsAnswerVisible(false);
+    setClue("");
 
     const backendSongs = query.data as Taylor;
 
@@ -63,12 +68,45 @@ export const SongTest = () => {
   const isCorrectAnswer = useCallback(() => {
     if (!randomQuote) return false;
 
-    return randomQuote.title.toLowerCase() === song.toLowerCase();
+    const cleanedTitle = removeBetweenBrackets(randomQuote.title)
+      .toLowerCase()
+      .trim();
+    const cleanedSong = removeBetweenBrackets(song).toLowerCase().trim();
+
+    return cleanedTitle === cleanedSong;
   }, [randomQuote, song]);
 
   const guessSong = useCallback(() => {
+    setIsAnswerVisible(false);
     setIsCorrect(isCorrectAnswer());
   }, [isCorrectAnswer]);
+
+  const clueProvider = useCallback(() => {
+    if (!randomQuote) return "";
+
+    const backendSongs = query.data as Taylor;
+
+    const allSongs: Song[] = Object.values(backendSongs).flat();
+
+    const selectedSong = allSongs.find((song) =>
+      Object.keys(song).includes(randomQuote.title)
+    );
+
+    const selectedVerse = selectedSong
+      ? Object.values(selectedSong[randomQuote.title]).find((verse) =>
+          verse.this.toLowerCase().includes(randomQuote.verse.toLowerCase())
+        )
+      : undefined;
+
+    if (selectedVerse) {
+      setClue(selectedVerse.next);
+    }
+
+    return {
+      title: randomQuote.title,
+      verse: selectedVerse ? selectedVerse.next : "",
+    };
+  }, [query.data, randomQuote]);
 
   return (
     <div className={styles.appContainer}>
@@ -89,10 +127,28 @@ export const SongTest = () => {
             value={song}
             onChange={(e) => setSong(e.target.value)}
             className={styles.input}
+            placeholder="Type the song here!"
           />
-          <button onClick={guessSong} className={styles.button}>
+          <button
+            onClick={guessSong}
+            className={styles.button}
+            disabled={song === ""}
+          >
             Guess!
           </button>
+          <button onClick={clueProvider} className={styles.button}>
+            Give me the next line please
+          </button>
+          {clue !== "" && <div className={styles.result}>{clue}</div>}
+          <button
+            onClick={() => setIsAnswerVisible(true)}
+            className={styles.button}
+          >
+            I am not that fan, give me the answer please!
+          </button>
+          {isAnswerVisible && (
+            <div className={styles.result}>{randomQuote.title}</div>
+          )}
         </>
       )}
       {isCorrect === true ? (

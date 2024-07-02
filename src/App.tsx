@@ -4,6 +4,7 @@ import { Song, Taylor } from "./interfaces";
 import { SongsContainer } from "./SongsContainer/SongsContainer";
 import styles from "./App.module.css";
 import { SongCard } from "./SongCard/SongCard";
+import { useNavigate } from "react-router-dom";
 
 function App() {
   const [filter, setFilter] = useState<string>("");
@@ -12,6 +13,8 @@ function App() {
     title: string;
     verse: string;
   }>();
+
+  const navigate = useNavigate();
 
   const query = useQuery({
     queryKey: ["taylor"],
@@ -117,6 +120,9 @@ function App() {
       </button>
       <button onClick={findRandomSonyLyric} className={styles.button}>
         Random Taylor Quote
+      </button>
+      <button onClick={() => navigate("/test")} className={styles.button}>
+        Test your knowledge
       </button>
       <SongsContainer songs={keywords !== "" ? filteredData : []} />
       {filteredData.length === 0 && keywords !== "" && !randomQuote && (

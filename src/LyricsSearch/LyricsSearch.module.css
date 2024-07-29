@@ -1,4 +1,4 @@
-.appContainer {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,9 +31,14 @@
   outline-color: #94e1ea;
 }
 
+.input::placeholder {
+  color: #94e1ea;
+  text-align: center;
+}
+
 .button {
   width: 80vw;
-  height: "fit-content";
+  height: 50px;
   font-size: 1.5rem;
   padding: 10px;
   border: none;
@@ -46,20 +51,4 @@
   background-color: #aec0fc;
   color: white;
   cursor: pointer;
-}
-
-.resultContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.result {
-  font-size: 1.5rem;
-  color: white;
-  font-weight: bold;
-  text-align: center;
-  width: 80vw;
 }

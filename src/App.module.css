@@ -5,30 +5,16 @@
   justify-content: center;
   color: white;
   gap: 2rem;
-  padding-top: 10rem;
+  padding-top: 5rem;
   padding-bottom: 10rem;
 }
 
-.title {
+.intro {
   font-size: 2rem;
   font-weight: bold;
-  color: #aec0fc;
+  color: white;
   text-align: center;
   width: 80vw;
-}
-
-.input {
-  width: 80vw;
-  height: 50px;
-  font-size: 1.5rem;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  color: #94e1ea;
-}
-
-.input:focus {
-  outline-color: #94e1ea;
 }
 
 .button {

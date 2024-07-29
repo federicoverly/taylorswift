@@ -5,6 +5,9 @@ import App from "./App";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SongTest } from "./SongTest/SongTest";
+import { SongsTest } from "./SongsTest/SongsTest";
+import { LyricsSearch } from "./LyricsSearch/LyricsSearch";
+import { RandomQuote } from "./RandomQuote/RandomQuote";
 
 const router = createBrowserRouter([
   {
@@ -12,8 +15,20 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
+    path: "/lyrics-search",
+    element: <LyricsSearch />,
+  },
+  {
     path: "/test",
     element: <SongTest />,
+  },
+  {
+    path: "/songs-test",
+    element: <SongsTest />,
+  },
+  {
+    path: "/random-quote",
+    element: <RandomQuote />,
   },
 ]);
 

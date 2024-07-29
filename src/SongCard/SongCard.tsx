@@ -9,8 +9,8 @@ export interface SongCardProps {
 export const SongCard = ({ song, verse }: SongCardProps) => {
   return (
     <div className={styles.cardContainer}>
-      <div className={styles.song}>{song}</div>
       <div className={styles.verse}>{verse}</div>
+      <div className={styles.song}>{song}</div>
     </div>
   );
 };

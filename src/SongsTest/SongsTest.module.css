@@ -1,4 +1,4 @@
-.appContainer {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +7,14 @@
   gap: 2rem;
   padding-top: 5rem;
   padding-bottom: 10rem;
+}
+
+.gameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .title {
@@ -31,6 +39,11 @@
   outline-color: #94e1ea;
 }
 
+.input::placeholder {
+  color: #94e1ea;
+  text-align: center;
+}
+
 .button {
   width: 80vw;
   height: "fit-content";
@@ -48,7 +61,22 @@
   cursor: pointer;
 }
 
-.resultContainer {
+.clue {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  width: 80vw;
+}
+
+.followUp {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  width: 80vw;
+}
+
+.resultsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,10 +84,26 @@
   gap: 1rem;
 }
 
-.result {
-  font-size: 1.5rem;
+.finalPoints {
+  font-size: 2rem;
   color: white;
-  font-weight: bold;
   text-align: center;
+  padding-bottom: 1rem;
   width: 80vw;
+}
+
+.finalResult {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  align-items: center;
+  width: 90vw;
+  gap: 1rem;
+}
+
+.image {
+  width: 50vw;
+  height: 50vw;
 }

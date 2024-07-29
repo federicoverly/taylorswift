@@ -1,12 +1,14 @@
 import { useCallback, useState } from "react";
 import styles from "./SongTest.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
-import { SongCard } from "../SongCard/SongCard";
 import { Song, Taylor } from "../interfaces";
 import disappointed from "./TS_disappointed.jpg";
 import approval from "./TS_approval.webp";
 import { removeBetweenBrackets } from "../utils/removeBetweenBrackets";
+import { BackHomeButton } from "../BackHomeButton/BackHomeButton";
+import { CustomButton } from "../CustomButton/CustomButton";
+import { TestSongCard } from "../TestSongCard/TestSongCard";
+import { CustomTextInput } from "../CustomTextInput/CustomTextInput";
 
 export const SongTest = () => {
   const [song, setSong] = useState<string>("");
@@ -26,8 +28,6 @@ export const SongTest = () => {
       ).then((res) => res.json());
     },
   });
-
-  const navigate = useNavigate();
 
   const findRandomSonyLyric = useCallback(() => {
     if (!query.data) return "";
@@ -114,38 +114,31 @@ export const SongTest = () => {
         Do you think you know a lot about Taylor Swift? Test your knowledge. I
         will give you a random quote and you gotta give me the song.
       </div>
-
-      <button onClick={findRandomSonyLyric} className={styles.button}>
-        Get a verse
-      </button>
+      <CustomButton title={"Get a verse"} onClick={findRandomSonyLyric} />
 
       {randomQuote && (
         <>
-          <SongCard song={"Guess the song!"} verse={randomQuote.verse} />
-          <input
-            type="text"
+          <TestSongCard verse={randomQuote.verse} />
+          <CustomTextInput
             value={song}
             onChange={(e) => setSong(e.target.value)}
-            className={styles.input}
             placeholder="Type the song here!"
           />
-          <button
+          <CustomButton
             onClick={guessSong}
-            className={styles.button}
+            title={"Guess"}
             disabled={song === ""}
-          >
-            Guess!
-          </button>
-          <button onClick={clueProvider} className={styles.button}>
-            Give me the next line please
-          </button>
+          />
+          <CustomButton
+            title={"Give me the next line please"}
+            onClick={clueProvider}
+            disabled={clue !== ""}
+          />
           {clue !== "" && <div className={styles.result}>{clue}</div>}
-          <button
+          <CustomButton
+            title={"I am not that fan, give me the answer please!"}
             onClick={() => setIsAnswerVisible(true)}
-            className={styles.button}
-          >
-            I am not that fan, give me the answer please!
-          </button>
+          />
           {isAnswerVisible && (
             <div className={styles.result}>{randomQuote.title}</div>
           )}
@@ -165,9 +158,7 @@ export const SongTest = () => {
         </div>
       ) : null}
 
-      <button onClick={() => navigate("/")} className={styles.button}>
-        Go back to the main page
-      </button>
+      <BackHomeButton />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { CustomButton } from "../CustomButton/CustomButton";
 
 export const BlankSpace = () => {
   const [randomQuote, setRandomQuote] = useState<string>();
+  const [isHard, setIsHard] = useState<boolean>(false);
 
   const [guess, setGuess] = useState<string>("");
   const query = useQuery({
@@ -39,8 +40,12 @@ export const BlankSpace = () => {
     ];
 
     setGuess("");
-    setRandomQuote(`${randomVerse.this}, ${randomVerse?.next}`);
-  }, [query.data]);
+    setRandomQuote(
+      isHard
+        ? `${randomVerse.this}`
+        : `${randomVerse.this}, ${randomVerse?.next}`
+    );
+  }, [isHard, query.data]);
 
   const blankSpaceParts = useMemo(() => {
     if (randomQuote === "" || !randomQuote) return;
@@ -75,6 +80,18 @@ export const BlankSpace = () => {
     <div className={styles.container}>
       <div className={styles.title}>
         But I've got a blank space, baby and you should complete the lyrics!
+      </div>
+      <div className={styles.mode}>
+        <div>Easy</div>
+        <label className={styles.switch}>
+          <input
+            type="checkbox"
+            checked={isHard}
+            onClick={() => setIsHard(!isHard)}
+          />
+          <span className={styles.slider}></span>
+        </label>
+        <div>Hard</div>
       </div>
       <CustomButton
         onClick={findRandomSong}

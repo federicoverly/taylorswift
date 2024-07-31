@@ -95,9 +95,14 @@ export const BlankSpace = () => {
       </div>
       <CustomButton
         onClick={findRandomSong}
-        title={randomQuote !== "" ? "Give me another one" : "Let's go!"}
+        title={
+          randomQuote !== "" && randomQuote
+            ? "Give me another one"
+            : "Let's go!"
+        }
       />
-      {!blankSpaceParts && (
+      {((randomQuote && !blankSpaceParts) ||
+        (blankSpaceParts && blankSpaceParts.firstPart.length === 0)) && (
         <div className={styles.verse}>This one is too tough, try again!</div>
       )}
       {randomQuote !== "" && blankSpaceParts && (

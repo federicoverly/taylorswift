@@ -17,41 +17,12 @@
   width: 80vw;
 }
 
-.verse {
-  font-size: 1.5rem;
-  text-align: center;
-  width: 80vw;
-}
-
-.input {
-  font-size: 1.5rem;
-  color: #aec0fc;
-  border: none;
-  background-color: transparent;
-  outline: none;
-  padding: 0;
-  margin: 0;
-}
-
-.input::placeholder {
-  color: white;
-}
-
-.result {
-  font-size: 1.5rem;
-  text-align: center;
-  width: 80vw;
-  padding-top: 2rem;
-  color: #aec0fc;
-}
-
 .mode {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  padding-top: 2rem;
   font-size: 1.5rem;
 }
 
@@ -108,4 +79,33 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+.verse {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 80vw;
+}
+
+.input {
+  font-size: 1.5rem;
+  color: #aec0fc;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  field-sizing: content;
+}
+
+.input::placeholder {
+  color: white;
+}
+
+.result {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 80vw;
+  padding-top: 2rem;
+  color: #aec0fc;
 }

@@ -8,6 +8,7 @@ import { SongTest } from "./SongTest/SongTest";
 import { SongsTest } from "./SongsTest/SongsTest";
 import { LyricsSearch } from "./LyricsSearch/LyricsSearch";
 import { RandomQuote } from "./RandomQuote/RandomQuote";
+import { BlankSpace } from "./BlankSpace/BlankSpace";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/random-quote",
     element: <RandomQuote />,
+  },
+  {
+    path: "/blank-space",
+    element: <BlankSpace />,
   },
 ]);
 

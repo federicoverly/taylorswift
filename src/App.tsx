@@ -29,6 +29,10 @@ function App() {
         title="10 Songs Test!"
         onClick={() => navigate("/songs-test")}
       />
+      <CustomButton
+        title="Blank space"
+        onClick={() => navigate("/blank-space")}
+      />
     </div>
   );
 }

@@ -19,6 +19,12 @@ export const SongsTest = () => {
   const [clue, setClue] = useState<string>("");
   const [verseNumber, setVerseNumber] = useState<number>(1);
   const [totalPoints, setTotalPoints] = useState<number>(0);
+  const [totalSongs, setTotalSongs] = useState<
+    {
+      title: string;
+      verse: string;
+    }[]
+  >([]);
 
   const query = useQuery({
     queryKey: ["taylor"],
@@ -59,6 +65,13 @@ export const SongsTest = () => {
       verse: randomVerse,
     });
 
+    setTotalSongs([
+      {
+        title: randomTitle,
+        verse: randomVerse,
+      },
+    ]);
+
     return {
       title: randomTitle,
       verse: randomVerse,
@@ -92,6 +105,18 @@ export const SongsTest = () => {
       title: randomTitle,
       verse: randomVerse,
     });
+
+    setTotalSongs((total) =>
+      total.length === 10
+        ? total
+        : [
+            ...total,
+            {
+              title: randomTitle,
+              verse: randomVerse,
+            },
+          ]
+    );
 
     return {
       title: randomTitle,
@@ -206,6 +231,13 @@ export const SongsTest = () => {
               <img src={sad} alt="sad" className={styles.image} />
             </div>
           )}
+          <div className={styles.songsResult}>
+            {totalSongs.map((song, index) => (
+              <div key={index}>
+                {index + 1}: {song.title} - {song.verse}
+              </div>
+            ))}
+          </div>
           <CustomButton title={"Restart!"} onClick={startTest} />
         </div>
       )}

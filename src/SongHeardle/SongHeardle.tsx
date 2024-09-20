@@ -11,10 +11,12 @@ import approval from "../SongTest/TS_approval.webp";
 export const SongHeardle = () => {
   const [song, setSong] = useState<string>("");
   const [isCorrect, setIsCorrect] = useState<boolean | undefined>(undefined);
+  const [isRestarting, setIsRestarting] = useState<boolean>(false);
 
   const randomSong = useMemo(() => {
+    void isRestarting;
     return songsQueries[Math.floor(Math.random() * songsQueries.length)];
-  }, []);
+  }, [isRestarting]);
 
   const songAudio = useMemo(() => {
     return new Audio(randomSong.url);
@@ -94,6 +96,10 @@ export const SongHeardle = () => {
           <img src={disappointed} alt="Sad Taylor" />
         </div>
       ) : null}
+      <CustomButton
+        title="Restart"
+        onClick={() => setIsRestarting((isRestarting) => !isRestarting)}
+      />
 
       <BackHomeButton />
     </div>

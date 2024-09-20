@@ -33,6 +33,10 @@ function App() {
         title="Blank space"
         onClick={() => navigate("/blank-space")}
       />
+      <CustomButton
+        title="Taylor Heardle"
+        onClick={() => navigate("/taylor-heardle")}
+      />
     </div>
   );
 }

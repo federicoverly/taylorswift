@@ -9,6 +9,7 @@ import { SongsTest } from "./SongsTest/SongsTest";
 import { LyricsSearch } from "./LyricsSearch/LyricsSearch";
 import { RandomQuote } from "./RandomQuote/RandomQuote";
 import { BlankSpace } from "./BlankSpace/BlankSpace";
+import { SongHeardle } from "./SongHeardle/SongHeardle";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/blank-space",
     element: <BlankSpace />,
+  },
+  {
+    path: "/taylor-heardle",
+    element: <SongHeardle />,
   },
 ]);
 

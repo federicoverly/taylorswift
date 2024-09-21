@@ -219,4 +219,72 @@ export const songsQueries = [
     name: "Hey Stephen",
     url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FHey%20Stephen.m4a?alt=media&token=68c2464f-e5fa-40d4-9700-5a08be68ccea",
   },
+  {
+    name: "Girl At Home",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FGirl%20At%20Home.m4a?alt=media&token=adc3dadd-1fb6-44fa-8403-9647cca83ac8",
+  },
+  {
+    name: "Glitch",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FGlitch.m4a?alt=media&token=a823bc5c-b3af-487f-a3c3-8f92bf63eaab",
+  },
+  {
+    name: "Holy Ground",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FHoly%20Ground.m4a?alt=media&token=3834a5e1-c278-4758-b367-c2e957264b80",
+  },
+  {
+    name: "It's time to go",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FIt's%20time%20to%20go.m4a?alt=media&token=3958f6bc-d76d-4cec-addf-72eb2eefea5e",
+  },
+  {
+    name: "Jump Then Fall",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FJump%20Then%20Fall.m4a?alt=media&token=99b50df9-5cf3-4f41-9453-6b397ec7bf68",
+  },
+  {
+    name: "Labyrinth",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FLabyrinth.m4a?alt=media&token=fc8fa203-cb24-4a76-a2de-9eda41953663",
+  },
+  {
+    name: "right where you left me",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2Fright%20where%20you%20left%20me.m4a?alt=media&token=ff1ac9dc-57a6-4abf-a50d-7bf05118acb7",
+  },
+  {
+    name: "Ronan",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FRonan.m4a?alt=media&token=c226f2b8-a02f-4637-a0fb-c498c8679199",
+  },
+  {
+    name: "Sad Beautiful Tragic",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FSad%20Beautiful%20Tragic.m4a?alt=media&token=edb39135-e1aa-4eed-994b-c05d7cbd7e2c",
+  },
+  {
+    name: "The Best Day",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FThe%20Best%20Day.m4a?alt=media&token=a6c39819-7719-4186-9631-574cfb20a77e",
+  },
+  {
+    name: "The Lucky One",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FThe%20Lucky%20One.m4a?alt=media&token=36a98b74-2137-4177-bcb7-0fb599d443c1",
+  },
+  {
+    name: "The Moment I Knew",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FThe%20Moment%20I%20Knew.m4a?alt=media&token=815e2ed5-79e0-4664-a1f9-1a5154c15207",
+  },
+  {
+    name: "White Horse",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FWhite%20Horse.m4a?alt=media&token=f2839f01-ff06-4462-acd8-940d6bdee460",
+  },
+  {
+    name: "Would've, Could;ve, Should've",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FWould've%2C%20Could%3Bve%2C%20Should've.m4a?alt=media&token=dcfb6caa-ea32-4b5f-893b-aa4ad026f577",
+  },
+  {
+    name: "You Need To Calm Down",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FYou%20Need%20To%20Calm%20Down.m4a?alt=media&token=f393b60f-fdb5-4bf7-b31b-d715648e3402",
+  },
+  {
+    name: "You're Not Sorry",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FYou're%20Not%20Sorry.m4a?alt=media&token=b68600d2-d899-47db-b07b-dd3473280d01",
+  },
+  {
+    name: "That's When",
+    url: "https://firebasestorage.googleapis.com/v0/b/ts-app-1ffb2.appspot.com/o/songs%2FThat's%20When.m4a?alt=media&token=39e9b010-d4bf-46fb-9191-41be812b855c",
+  },
 ];

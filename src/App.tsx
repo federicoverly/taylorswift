@@ -37,6 +37,10 @@ function App() {
         title="Taylor Heardle"
         onClick={() => navigate("/taylor-heardle")}
       />
+      <CustomButton
+        title="Boyfriend Inspiration"
+        onClick={() => navigate("/taylor-inspiration")}
+      />
     </div>
   );
 }

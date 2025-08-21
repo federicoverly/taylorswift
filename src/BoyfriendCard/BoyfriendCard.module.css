@@ -1,0 +1,61 @@
+.cardContainer {
+  width: 80vw;
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  background-color: #cec0fc;
+  border-radius: 10px;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.boyfriendImage {
+  width: 5rem;
+  height: 5rem;
+  background-size: cover;
+  background-position: top center;
+  border-radius: 100%;
+  margin: auto;
+  object-fit: contain;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+}
+
+.boyfriend {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.song {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.keyLyrics {
+  font-size: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+@media only screen and (max-width: 600px) {
+  .boyfriend {
+    font-size: 1.2rem;
+  }
+
+  .song {
+    font-size: 0.8rem;
+  }
+
+  .keyLyrics {
+    font-size: 0.8rem;
+  }
+}

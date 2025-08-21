@@ -48,3 +48,10 @@ export interface TalkshowParody {
   "Monologue Song (La La La)": songInterface[];
   "Thug Story": songInterface[];
 }
+
+export interface BoyfriendInspiration {
+  song: string;
+  boyfriend: string;
+  boyfriendPicture: string;
+  keyLyrics: string;
+}

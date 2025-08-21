@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #aec0fc;
+  text-align: center;
+  width: 80vw;
+}

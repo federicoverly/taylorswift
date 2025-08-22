@@ -16,3 +16,17 @@
   text-align: center;
   width: 80vw;
 }
+
+.filterTitle {
+  font-size: 1.5rem;
+  color: #aec0fc;
+  text-align: center;
+  width: 80vw;
+  font-weight: bold;
+}
+
+.select {
+  width: 80vw;
+  margin: 0 auto;
+  color: #aec0fc;
+}
